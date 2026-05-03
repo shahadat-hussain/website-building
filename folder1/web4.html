@@ -1,0 +1,638 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dr. Shahadat Hussain | Advanced Materials & Additive Manufacturing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Advanced Materials Engineer specializing in Metamaterials, Additive Manufacturing, NiTi Shape Memory Materials, and Data Science." />
+
+  <style>
+    :root {
+      --bg: #fafafa;
+      --bg-soft: #f5f5f5;
+      --card: #ffffff;
+      --text: #1a1a1a;
+      --text-soft: #555;
+      --accent: #6b5cff;
+      --accent-soft: #eceaff;
+      --border: #e5e5e5;
+      --shadow: 0 8px 24px rgba(0,0,0,0.08);
+      --shadow-soft: 0 4px 14px rgba(0,0,0,0.06);
+    }
+
+    body.dark {
+      --bg: #050814;
+      --bg-soft: #0b1020;
+      --card: #111827;
+      --text: #f9fafb;
+      --text-soft: #9ca3af;
+      --accent: #8b8bff;
+      --accent-soft: #1f2937;
+      --border: #1f2937;
+      --shadow: 0 10px 30px rgba(0,0,0,0.6);
+      --shadow-soft: 0 6px 18px rgba(0,0,0,0.5);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Inter", system-ui, sans-serif;
+      line-height: 1.6;
+      font-size: 18px;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    img { max-width: 100%; display: block; }
+
+    a { color: var(--accent); text-decoration: none; }
+
+    .shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+    }
+
+    body.dark header {
+      background: rgba(15,23,42,0.9);
+    }
+
+    header.nav-scrolled {
+      box-shadow: var(--shadow-soft);
+    }
+
+    .nav {
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #6b5cff, #9d8bff);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .nav-title {
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      font-size: 16px;
+    }
+
+    .nav-links a {
+      color: var(--text-soft);
+      position: relative;
+      padding-bottom: 4px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .toggle-btn {
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      padding: 6px 12px;
+      font-size: 14px;
+      background: var(--card);
+      color: var(--text-soft);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: var(--shadow-soft);
+      transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+    }
+
+    .toggle-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      padding: 80px 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-title {
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .highlight {
+      background: linear-gradient(120deg, #6b5cff, #9d8bff);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-sub {
+      font-size: 20px;
+      color: var(--text-soft);
+      margin-bottom: 24px;
+      max-width: 600px;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .tag {
+      padding: 6px 14px;
+      background: var(--accent-soft);
+      border-radius: 999px;
+      font-size: 14px;
+      color: var(--accent);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-size: 18px;
+      font-weight: 500;
+      background: var(--accent);
+      color: white;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.12);
+    }
+
+    .btn-outline {
+      background: var(--card);
+      color: var(--accent);
+      border: 2px solid var(--accent);
+    }
+
+    .btn-outline:hover {
+      background: var(--accent-soft);
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s ease, box-shadow 0.25s ease, background 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+    }
+
+    .card-title {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .card-sub {
+      font-size: 16px;
+      color: var(--text-soft);
+      margin-bottom: 16px;
+    }
+
+    .profile-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .profile-pic {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--accent-soft);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .profile-text {
+      font-size: 16px;
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .section-sub {
+      font-size: 20px;
+      color: var(--text-soft);
+      margin-bottom: 40px;
+      max-width: 640px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .contact-box {
+      background: var(--card);
+      padding: 32px;
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-field {
+      margin-bottom: 16px;
+    }
+
+    .contact-label {
+      font-size: 14px;
+      color: var(--text-soft);
+      margin-bottom: 4px;
+    }
+
+    .contact-value {
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    .cv-link {
+      margin-top: 16px;
+      font-size: 16px;
+    }
+
+    footer {
+      padding: 40px 0;
+      text-align: center;
+      font-size: 16px;
+      color: var(--text-soft);
+      border-top: 1px solid var(--border);
+      margin-top: 40px;
+    }
+
+    /* Animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-grid,
+      .grid-2,
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-title {
+        font-size: 40px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      body { font-size: 17px; }
+      .hero-title { font-size: 34px; }
+      .section-title { font-size: 30px; }
+    }
+  </style>
+</head>
+
+<body>
+<header id="site-header">
+  <div class="shell">
+    <nav class="nav">
+      <div class="nav-left">
+        <div class="logo"></div>
+        <div class="nav-title">Dr. Shahadat Hussain</div>
+      </div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#capabilities">Capabilities</a>
+        <a href="#projects">Projects</a>
+        <a href="#research">Research</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="nav-right">
+        <button class="toggle-btn" id="theme-toggle">
+          <span id="theme-icon">🌞</span>
+          <span id="theme-label">Light</span>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero fade-in" id="about">
+    <div class="shell">
+      <div class="hero-grid">
+        <div>
+          <h1 class="hero-title">
+            Advanced Materials, <span class="highlight">Metamaterials</span>, and Additive Manufacturing for Industry.
+          </h1>
+          <p class="hero-sub">
+            I am an Advanced Materials Engineer specializing in metamaterials, TPMS lattices, NiTi shape memory alloys,
+            and metal additive manufacturing — now transitioning into industry roles.
+          </p>
+
+          <div class="tag-row">
+            <span class="tag">Metamaterials</span>
+            <span class="tag">NiTi Shape Memory Alloys</span>
+            <span class="tag">LPBF Additive Manufacturing</span>
+            <span class="tag">Mechanical Testing</span>
+            <span class="tag">Data Science</span>
+          </div>
+
+          <a href="#contact" class="btn">Discuss a Role</a>
+          <a href="mailto:contact@shahadathussain.com" class="btn btn-outline" style="margin-left:12px;">Request CV</a>
+        </div>
+
+        <div class="card">
+          <div class="profile-row">
+            <!-- Replace src with your actual profile image path -->
+            <img src="profile.jpg" alt="Profile picture of Dr. Shahadat Hussain" class="profile-pic" />
+            <div class="profile-text">
+              <strong>Shahadat Hussain, PhD</strong><br />
+              Advanced Materials Engineer · Abu Dhabi, UAE<br />
+              Open to industrial roles from Summer 2026
+            </div>
+          </div>
+          <div class="card-title">Industrial‑Ready Profile</div>
+          <div class="card-sub">10+ years in metamaterials, AM, NiTi, and mechanical testing.</div>
+          <p>Experienced in design → print → test workflows for advanced materials and architected structures.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAPABILITIES -->
+  <section id="capabilities" class="fade-in">
+    <div class="shell">
+      <h2 class="section-title">Capabilities</h2>
+      <p class="section-sub">From computational design to tested hardware.</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">Metamaterials & Additive Manufacturing</div>
+          <div class="card-sub">Designing and fabricating architected materials.</div>
+          <p>• TPMS lattices (Gyroid, Primitive, Schwarz)<br>
+             • LPBF process optimization<br>
+             • Defect & microstructure analysis<br>
+             • NiTi TPMS fabrication</p>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Shape Memory Materials & Testing</div>
+          <div class="card-sub">Smart materials for real‑world applications.</div>
+          <p>• NiTi SMAs<br>
+             • Superelasticity & shape recovery<br>
+             • Instron/MTS testing<br>
+             • Microstructure–property correlation</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="fade-in">
+    <div class="shell">
+      <h2 class="section-title">Selected Projects</h2>
+      <p class="section-sub">Research with industrial relevance.</p>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-title">NiTi TPMS Defect Mapping</div>
+          <p>Studied balling, cracking, and melt pool behavior in thin NiTi TPMS layers fabricated via LPBF, linking
+             process parameters to defect formation.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Microstructure in NiTi Lattices</div>
+          <p>Analyzed Ni evaporation, oxide formation, and phase distribution in LPBF‑printed TPMS structures to guide
+             robust lattice design.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-title">ASME IMECE Work</div>
+          <p>Presented findings on geometry‑driven microstructure gradients in NiTi TPMS structures, highlighting
+             process–geometry interactions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section id="research" class="fade-in">
+    <div class="shell">
+      <h2 class="section-title">Research & Publications</h2>
+      <p class="section-sub">Indexed globally across Scopus, Web of Science, and Google Scholar.</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">Metamaterials & Smart Materials</div>
+          <p>Work spans NiTi SMAs, TPMS lattices, AM process–structure–property relationships, and mechanical testing
+             for advanced applications.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Digital Identifiers</div>
+          <p>ORCID: 0000‑0002‑4355‑2169<br>
+             Scopus · Web of Science · Semantic Scholar · NYU Libraries</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="fade-in">
+    <div class="shell">
+      <h2 class="section-title">Contact</h2>
+      <p class="section-sub">Let’s talk about your next materials challenge.</p>
+
+      <div class="contact-box">
+        <div class="contact-field">
+          <div class="contact-label">Email</div>
+          <div class="contact-value">contact@shahadathussain.com</div>
+        </div>
+
+        <div class="contact-field">
+          <div class="contact-label">Location</div>
+          <div class="contact-value">Abu Dhabi, UAE</div>
+        </div>
+
+        <div class="contact-field">
+          <div class="contact-label">Availability</div>
+          <div class="contact-value">Summer 2026</div>
+        </div>
+
+        <div class="contact-field">
+          <div class="contact-label">Downloadable CV</div>
+          <div class="contact-value">
+            <!-- Put your actual CV file in the repo as cv.pdf -->
+            <a href="cv.pdf" download>Download CV (PDF)</a>
+          </div>
+        </div>
+
+        <a href="mailto:contact@shahadathussain.com" class="btn" style="margin-top:20px;">Email Me</a>
+        <div class="cv-link">
+          Prefer offline review? Use the link above to download my CV as a PDF.
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  © 2026 · Shahadat Hussain · Advanced Materials & Additive Manufacturing
+</footer>
+
+<script>
+  // Theme toggle with localStorage
+  const body = document.body;
+  const toggleBtn = document.getElementById('theme-toggle');
+  const themeIcon = document.getElementById('theme-icon');
+  const themeLabel = document.getElementById('theme-label');
+
+  function setTheme(mode) {
+    if (mode === 'dark') {
+      body.classList.add('dark');
+      themeIcon.textContent = '🌙';
+      themeLabel.textContent = 'Dark';
+      localStorage.setItem('theme', 'dark');
+    } else {
+      body.classList.remove('dark');
+      themeIcon.textContent = '🌞';
+      themeLabel.textContent = 'Light';
+      localStorage.setItem('theme', 'light');
+    }
+  }
+
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme) {
+    setTheme(savedTheme);
+  } else {
+    setTheme('light');
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    if (body.classList.contains('dark')) {
+      setTheme('light');
+    } else {
+      setTheme('dark');
+    }
+  });
+
+  // Floating navbar shadow on scroll
+  const header = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 10) {
+      header.classList.add('nav-scrolled');
+    } else {
+      header.classList.remove('nav-scrolled');
+    }
+  });
+
+  // Fade-in on scroll
+  const fadeEls = document.querySelectorAll('.fade-in');
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+
+  fadeEls.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
+```

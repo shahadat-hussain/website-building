@@ -1,0 +1,1667 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dr. Shahadat Hussain | Advanced Materials & Additive Manufacturing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Dr. Shahadat Hussain – Advanced Materials Engineer specializing in Metamaterials, Additive Manufacturing, NiTi Shape Memory Materials, and Data Science, based in Abu Dhabi, UAE." />
+  <style>
+    :root {
+      --bg: #050814;
+      --bg-alt: #070b1c;
+      --card: #0c1024;
+      --accent: #4f8cff;
+      --accent-soft: rgba(79, 140, 255, 0.18);
+      --accent-strong: #7b5cff;
+      --text: #f5f7ff;
+      --muted: #a4acc7;
+      --border-subtle: rgba(255, 255, 255, 0.06);
+      --danger: #ff5c7a;
+      --success: #3dd68c;
+      --shadow-soft: 0 24px 60px rgba(0, 0, 0, 0.65);
+      --radius-lg: 18px;
+      --radius-xl: 26px;
+      --radius-pill: 999px;
+      --nav-h: 70px;
+      --max-w: 1120px;
+      --transition-fast: 0.18s ease-out;
+      --transition-med: 0.28s ease-out;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      background: radial-gradient(circle at top, #151a3a 0, #050814 55%, #02030a 100%);
+      color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Layout */
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .shell {
+      width: 100%;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(5, 8, 20, 0.96), rgba(5, 8, 20, 0.82), transparent);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .nav {
+      height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 12px;
+      background: conic-gradient(from 210deg, #4f8cff, #7b5cff, #ff7ad9, #4f8cff);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12), 0 12px 30px rgba(0, 0, 0, 0.7);
+    }
+
+    .logo-mark::after {
+      content: "";
+      position: absolute;
+      inset: 4px;
+      border-radius: 9px;
+      background: radial-gradient(circle at 20% 0, rgba(255, 255, 255, 0.35), transparent 55%);
+      mix-blend-mode: screen;
+      opacity: 0.9;
+    }
+
+    .nav-title {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .nav-title-main {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    .nav-title-sub {
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-strong));
+      transition: width var(--transition-fast);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: radial-gradient(circle at top left, rgba(79, 140, 255, 0.18), rgba(5, 8, 20, 0.9));
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: radial-gradient(circle, var(--success), #0f5132);
+      box-shadow: 0 0 0 4px rgba(61, 214, 140, 0.18);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 9px 16px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      background: radial-gradient(circle at top left, rgba(79, 140, 255, 0.35), rgba(5, 8, 20, 0.9));
+      color: var(--text);
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.7);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+    }
+
+    .btn span.icon {
+      font-size: 15px;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      border-color: rgba(255, 255, 255, 0.3);
+      background: radial-gradient(circle at top left, rgba(123, 92, 255, 0.6), rgba(5, 8, 20, 0.95));
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.85);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border-color: rgba(255, 255, 255, 0.16);
+      box-shadow: none;
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.04);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    }
+
+    main {
+      flex: 1;
+      padding-bottom: 80px;
+    }
+
+    section {
+      padding: 60px 0;
+    }
+
+    /* Hero */
+
+    .hero {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+      gap: 32px;
+      align-items: center;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: radial-gradient(circle at left, rgba(79, 140, 255, 0.3), rgba(5, 8, 20, 0.9));
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .hero-eyebrow-badge {
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.5);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+    }
+
+    .hero-title {
+      font-size: clamp(32px, 4vw, 40px);
+      line-height: 1.1;
+      font-weight: 650;
+      letter-spacing: 0.01em;
+      margin-bottom: 14px;
+    }
+
+    .hero-title span.highlight {
+      background: linear-gradient(120deg, #7b5cff, #4f8cff, #3dd68c);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 520px;
+      line-height: 1.5;
+      margin-bottom: 18px;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 22px;
+    }
+
+    .tag {
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 11px;
+      color: var(--muted);
+      background: rgba(5, 8, 20, 0.9);
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .hero-note {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .hero-note strong {
+      font-weight: 600;
+      color: #e5e7ff;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 18px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .hero-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-meta-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: radial-gradient(circle, var(--accent), transparent);
+    }
+
+    .hero-right {
+      position: relative;
+    }
+
+    .hero-card {
+      position: relative;
+      border-radius: var(--radius-xl);
+      padding: 18px 18px 16px;
+      background: radial-gradient(circle at top left, rgba(123, 92, 255, 0.4), rgba(5, 8, 20, 0.96));
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.12), transparent 55%),
+        radial-gradient(circle at 100% 0, rgba(123, 92, 255, 0.4), transparent 60%),
+        radial-gradient(circle at 0 100%, rgba(79, 140, 255, 0.35), transparent 60%);
+      opacity: 0.7;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    .hero-card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .hero-card-title {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: rgba(229, 231, 255, 0.9);
+    }
+
+    .hero-card-pill {
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.4);
+      font-size: 11px;
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-card-pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--success);
+      box-shadow: 0 0 0 4px rgba(61, 214, 140, 0.25);
+    }
+
+    .hero-card-main {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 16px;
+      align-items: center;
+    }
+
+    .hero-card-profile {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .hero-name {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .hero-role {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .hero-location {
+      font-size: 12px;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-location span {
+      font-size: 14px;
+    }
+
+    .hero-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .hero-mini-pill {
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(5, 8, 20, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 10px;
+      color: var(--muted);
+    }
+
+    .hero-card-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      font-size: 11px;
+    }
+
+    .metric-card {
+      border-radius: 14px;
+      padding: 8px 9px;
+      background: rgba(5, 8, 20, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .metric-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .metric-value {
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .metric-sub {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .hero-card-footer {
+      margin-top: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .hero-card-footer span strong {
+      color: #e5e7ff;
+      font-weight: 500;
+    }
+
+    .hero-card-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .hero-card-link {
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(5, 8, 20, 0.7);
+      font-size: 11px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: background var(--transition-fast), transform var(--transition-fast), border-color var(--transition-fast);
+    }
+
+    .hero-card-link:hover {
+      background: rgba(255, 255, 255, 0.04);
+      transform: translateY(-1px);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    /* Sections */
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .section-title-block {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .section-eyebrow {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .section-subtitle {
+      font-size: 13px;
+      color: var(--muted);
+      max-width: 420px;
+    }
+
+    .section-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .chip {
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(5, 8, 20, 0.9);
+    }
+
+    /* Capabilities */
+
+    .capabilities-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.1fr);
+      gap: 20px;
+    }
+
+    .card {
+      border-radius: var(--radius-lg);
+      background: radial-gradient(circle at top left, rgba(79, 140, 255, 0.18), rgba(5, 8, 20, 0.96));
+      border: 1px solid var(--border-subtle);
+      padding: 16px 16px 14px;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.7);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      gap: 10px;
+    }
+
+    .card-title {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .card-subtitle {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .badge {
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.5);
+      font-size: 10px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+      margin-bottom: 10px;
+    }
+
+    .pill-small {
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 11px;
+      color: var(--muted);
+      background: rgba(5, 8, 20, 0.9);
+    }
+
+    .card-list {
+      list-style: none;
+      display: grid;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .card-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .card-list li span.bullet {
+      margin-top: 4px;
+      font-size: 10px;
+      color: var(--accent);
+    }
+
+    .card-footer-note {
+      margin-top: 10px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    /* Projects / Impact */
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .project-card {
+      border-radius: var(--radius-lg);
+      background: radial-gradient(circle at top, rgba(123, 92, 255, 0.18), rgba(5, 8, 20, 0.96));
+      border: 1px solid var(--border-subtle);
+      padding: 14px 14px 12px;
+      font-size: 13px;
+      color: var(--muted);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .project-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+
+    .project-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #e5e7ff;
+    }
+
+    .project-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 11px;
+    }
+
+    .project-meta span {
+      padding: 3px 7px;
+      border-radius: 999px;
+      background: rgba(5, 8, 20, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .project-footer {
+      margin-top: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+    }
+
+    .project-footer span strong {
+      color: #e5e7ff;
+      font-weight: 500;
+    }
+
+    /* Research / Publications */
+
+    .research-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 18px;
+    }
+
+    .research-card {
+      border-radius: var(--radius-lg);
+      background: radial-gradient(circle at top left, rgba(79, 140, 255, 0.18), rgba(5, 8, 20, 0.96));
+      border: 1px solid var(--border-subtle);
+      padding: 14px 14px 12px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .research-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #e5e7ff;
+      margin-bottom: 6px;
+    }
+
+    .research-meta {
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .research-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+      margin-bottom: 8px;
+    }
+
+    .research-tag {
+      padding: 3px 7px;
+      border-radius: 999px;
+      background: rgba(5, 8, 20, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 11px;
+    }
+
+    .research-note {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .archive-card {
+      border-radius: var(--radius-lg);
+      background: radial-gradient(circle at top, rgba(123, 92, 255, 0.18), rgba(5, 8, 20, 0.96));
+      border: 1px solid var(--border-subtle);
+      padding: 14px 14px 12px;
+      font-size: 12px;
+      color: var(--muted);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .archive-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+      font-size: 11px;
+    }
+
+    .archive-item {
+      padding: 4px 7px;
+      border-radius: 999px;
+      background: rgba(5, 8, 20, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      text-align: center;
+    }
+
+    /* Data science */
+
+    .ds-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+      gap: 18px;
+    }
+
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      font-size: 11px;
+    }
+
+    .stack-item {
+      padding: 6px 7px;
+      border-radius: 12px;
+      background: rgba(5, 8, 20, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .stack-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+
+    .stack-value {
+      font-size: 12px;
+      color: #e5e7ff;
+    }
+
+    /* Contact */
+
+    .contact-card {
+      border-radius: var(--radius-xl);
+      background: radial-gradient(circle at top left, rgba(79, 140, 255, 0.25), rgba(5, 8, 20, 0.96));
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      padding: 18px 18px 16px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 18px;
+      align-items: center;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .contact-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .contact-subtitle {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 12px;
+      max-width: 460px;
+    }
+
+    .contact-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .contact-meta-pill {
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(5, 8, 20, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .contact-right {
+      font-size: 12px;
+      color: var(--muted);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .contact-field {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .contact-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+
+    .contact-value {
+      padding: 7px 9px;
+      border-radius: 12px;
+      background: rgba(5, 8, 20, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .contact-value span.key {
+      font-size: 12px;
+      color: #e5e7ff;
+    }
+
+    .contact-copy {
+      font-size: 11px;
+      color: var(--muted);
+      cursor: pointer;
+      padding: 3px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.02);
+      transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .contact-copy:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-1px);
+    }
+
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 18px 0 26px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      padding: 3px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      background: rgba(5, 8, 20, 0.9);
+    }
+
+    /* Responsive */
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .capabilities-grid,
+      .research-grid,
+      .ds-grid,
+      .contact-card {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-right {
+        order: -1;
+      }
+
+      .hero-card-main {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      header {
+        position: static;
+        backdrop-filter: none;
+        background: transparent;
+        border-bottom: none;
+      }
+
+      .nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 24px;
+      }
+
+      section {
+        padding: 40px 0;
+      }
+
+      .projects-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .stack-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 28px;
+      }
+
+      .contact-card {
+        padding: 16px 14px 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <header id="top">
+    <div class="shell">
+      <nav class="nav">
+        <div class="nav-left">
+          <div class="logo-mark"></div>
+          <div class="nav-title">
+            <span class="nav-title-main">Dr. Shahadat Hussain</span>
+            <span class="nav-title-sub">Metamaterials · 3D Printing · NiTi</span>
+          </div>
+        </div>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#capabilities">Capabilities</a>
+          <a href="#projects">Projects</a>
+          <a href="#research">Research</a>
+          <a href="#data-science">Data Science</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="nav-cta">
+          <div class="pill">
+            <span class="pill-dot"></span>
+            <span>Open to industrial roles</span>
+          </div>
+          <a href="#contact" class="btn">
+            <span class="icon">✉️</span>
+            <span>Discuss a role</span>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="about">
+      <div class="shell">
+        <div class="hero-grid">
+          <div>
+            <div class="hero-eyebrow">
+              <span class="hero-eyebrow-badge">Industrial transition</span>
+              <span>Advanced Materials Engineer · Abu Dhabi, UAE</span>
+            </div>
+            <h1 class="hero-title">
+              Turning <span class="highlight">metamaterials, NiTi & 3D printing</span> into industrial impact.
+            </h1>
+            <p class="hero-subtitle">
+              I am an Advanced Materials Engineer and Senior Researcher with 10+ years of experience in
+              metamaterials, triply periodic minimal surface (TPMS) lattices, NiTi shape memory alloys, and
+              metal additive manufacturing—now actively exploring opportunities in industry.
+            </p>
+            <div class="hero-tags">
+              <span class="tag">Metamaterials & TPMS lattices</span>
+              <span class="tag">Laser Powder Bed Fusion (LPBF)</span>
+              <span class="tag">NiTi Shape Memory Materials</span>
+              <span class="tag">Mechanical Testing & Characterization</span>
+              <span class="tag">Data Science for Materials</span>
+            </div>
+            <div class="hero-cta-row">
+              <a href="#contact" class="btn">
+                <span class="icon">🤝</span>
+                <span>Explore collaboration / roles</span>
+              </a>
+              <a href="mailto:contact@shahadathussain.com" class="btn btn-outline">
+                <span class="icon">📄</span>
+                <span>Request full CV</span>
+              </a>
+            </div>
+            <p class="hero-note">
+              <strong>Ideal fit for:</strong> R&D, advanced manufacturing, materials innovation, and data-driven engineering teams
+              seeking deep expertise in architected materials and AM process–structure–property relationships.
+            </p>
+            <div class="hero-meta">
+              <div class="hero-meta-item">
+                <div class="hero-meta-dot"></div>
+                <span>Research Associate · NYU Abu Dhabi</span>
+              </div>
+              <div class="hero-meta-item">
+                <div class="hero-meta-dot"></div>
+                <span>PhD in Mechanical Engineering · Materials Science & Technology</span>
+              </div>
+              <div class="hero-meta-item">
+                <div class="hero-meta-dot"></div>
+                <span>Abu Dhabi, United Arab Emirates</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-right">
+            <div class="hero-card">
+              <div class="hero-card-inner">
+                <div class="hero-card-header">
+                  <div class="hero-card-title">Industrial-ready profile</div>
+                  <div class="hero-card-pill">
+                    <span class="hero-card-pill-dot"></span>
+                    <span>Available from Summer 2026</span>
+                  </div>
+                </div>
+                <div class="hero-card-main">
+                  <div class="hero-card-profile">
+                    <div class="hero-name">Shahadat Hussain, PhD</div>
+                    <div class="hero-role">Advanced Materials Engineer · Additive Manufacturing · Data Science</div>
+                    <div class="hero-location">
+                      <span>📍</span>
+                      <span>Abu Dhabi, UAE · Open to relocation & hybrid roles</span>
+                    </div>
+                    <div class="hero-pill-row">
+                      <span class="hero-mini-pill">Metamaterials & TPMS</span>
+                      <span class="hero-mini-pill">NiTi Shape Memory Alloys</span>
+                      <span class="hero-mini-pill">LPBF Process Optimization</span>
+                      <span class="hero-mini-pill">Mechanical Testing</span>
+                      <span class="hero-mini-pill">Python · MATLAB · ML</span>
+                    </div>
+                  </div>
+                  <div class="hero-card-metrics">
+                    <div class="metric-card">
+                      <div class="metric-label">Experience</div>
+                      <div class="metric-value">10+ years</div>
+                      <div class="metric-sub">Metamaterials, AM & smart materials</div>
+                    </div>
+                    <div class="metric-card">
+                      <div class="metric-label">Focus</div>
+                      <div class="metric-value">Design → Print → Test</div>
+                      <div class="metric-sub">End-to-end materials workflows</div>
+                    </div>
+                    <div class="metric-card">
+                      <div class="metric-label">Domains</div>
+                      <div class="metric-value">Aerospace · MedTech · Energy</div>
+                      <div class="metric-sub">Impact absorption, lattices, implants</div>
+                    </div>
+                    <div class="metric-card">
+                      <div class="metric-label">Data</div>
+                      <div class="metric-value">AI & analytics</div>
+                      <div class="metric-sub">Process–structure–property insights</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="hero-card-footer">
+                  <span>Let’s explore how architected materials and AM can unlock <strong>lighter, smarter, and more reliable products</strong>.</span>
+                  <div class="hero-card-links">
+                    <a class="hero-card-link" href="https://www.linkedin.com" target="_blank" rel="noreferrer">
+                      <span>in</span><span>LinkedIn</span>
+                    </a>
+                    <a class="hero-card-link" href="https://scholar.google.com" target="_blank" rel="noreferrer">
+                      <span>📚</span><span>Google Scholar</span>
+                    </a>
+                    <a class="hero-card-link" href="https://github.com" target="_blank" rel="noreferrer">
+                      <span>🐙</span><span>GitHub</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAPABILITIES -->
+    <section id="capabilities">
+      <div class="shell">
+        <div class="section-header">
+          <div class="section-title-block">
+            <div class="section-eyebrow">Capabilities</div>
+            <div class="section-title">From computational design to tested hardware.</div>
+            <div class="section-subtitle">
+              I work across the full stack of advanced materials: architected design, additive manufacturing, process
+              tuning, mechanical testing, and data-driven analysis—bridging research-grade rigor with industrial needs.
+            </div>
+          </div>
+          <div class="section-chip-row">
+            <span class="chip">Metamaterials & TPMS lattices</span>
+            <span class="chip">NiTi & shape memory alloys</span>
+            <span class="chip">Metal & polymer AM</span>
+            <span class="chip">Mechanical testing & characterization</span>
+          </div>
+        </div>
+
+        <div class="capabilities-grid">
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">Metamaterials & Additive Manufacturing</div>
+                <div class="card-subtitle">Designing and fabricating architected materials for real-world constraints.</div>
+              </div>
+              <div class="badge">Design · Print · Validate</div>
+            </div>
+            <div class="pill-row">
+              <span class="pill-small">TPMS lattices (Gyroid, Primitive, Schwarz)</span>
+              <span class="pill-small">Laser Powder Bed Fusion (LPBF)</span>
+              <span class="pill-small">Process parameter optimization</span>
+              <span class="pill-small">Defect & microstructure analysis</span>
+            </div>
+            <ul class="card-list">
+              <li>
+                <span class="bullet">●</span>
+                <span>Experience fabricating NiTi TPMS lattices via LPBF, analyzing balling, spatter, and inhomogeneous microstructures
+                  to improve print quality and performance.</span>
+              </li>
+              <li>
+                <span class="bullet">●</span>
+                <span>Comfortable with complex geometries that exploit metamaterial behavior for impact absorption, stiffness tuning,
+                  and functional grading.</span>
+              </li>
+              <li>
+                <span class="bullet">●</span>
+                <span>Hands-on with Raise3D, Stratasys, Ultimaker, Formlabs, Bambu Lab and related AM ecosystems.</span>
+              </li>
+            </ul>
+            <div class="card-footer-note">
+              I can help translate advanced lattice concepts into manufacturable, testable components aligned with your
+              design envelope and certification pathway.
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">Shape Memory Materials & Mechanical Testing</div>
+                <div class="card-subtitle">Smart materials that respond to temperature, load, and environment.</div>
+              </div>
+              <div class="badge">Smart materials</div>
+            </div>
+            <div class="pill-row">
+              <span class="pill-small">NiTi shape memory alloys</span>
+              <span class="pill-small">Superelasticity & shape recovery</span>
+              <span class="pill-small">Instron · MTS · fatigue & tensile</span>
+              <span class="pill-small">Microstructure–property correlation</span>
+            </div>
+            <ul class="card-list">
+              <li>
+                <span class="bullet">●</span>
+                <span>Deep understanding of martensite–austenite transformations and their implications for actuation,
+                  damping, and reliability in real components.</span>
+              </li>
+              <li>
+                <span class="bullet">●</span>
+                <span>Extensive experience with mechanical testing (Instron, MTS, etc.) and advanced characterization to
+                  validate performance under realistic loading conditions.</span>
+              </li>
+              <li>
+                <span class="bullet">●</span>
+                <span>Comfortable working with cross-functional teams (design, manufacturing, QA) to interpret test data and
+                  feed it back into design and process decisions.</span>
+              </li>
+            </ul>
+            <div class="card-footer-note">
+              Ideal for applications in aerospace, medical devices, automotive, and any system where adaptive or
+              high-strain materials can unlock new functionality.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS / IMPACT -->
+    <section id="projects">
+      <div class="shell">
+        <div class="section-header">
+          <div class="section-title-block">
+            <div class="section-eyebrow">Selected work</div>
+            <div class="section-title">Examples of research with industrial relevance.</div>
+            <div class="section-subtitle">
+              Below are representative projects that illustrate how I approach process–structure–property relationships,
+              defect mitigation, and performance optimization in advanced materials and AM.
+            </div>
+          </div>
+          <div class="section-chip-row">
+            <span class="chip">Process tuning</span>
+            <span class="chip">Defect engineering</span>
+            <span class="chip">Microstructure control</span>
+          </div>
+        </div>
+
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-label">NiTi TPMS · LPBF</div>
+            <div class="project-title">Imperfection formation in thin NiTi TPMS layers</div>
+            <p>
+              Investigated balling, cracking, and spatter in NiTi Schwarz TPMS layers fabricated via LPBF at varying
+              relative densities and scan strategies, linking melt pool behavior to surface quality and microstructure.
+            </p>
+            <div class="project-meta">
+              <span>NiTi · LPBF</span>
+              <span>Process–defect mapping</span>
+              <span>Thin-wall lattices</span>
+            </div>
+            <div class="project-footer">
+              <span>Outcome: <strong>Guidelines to reduce balling & improve lattice integrity.</strong></span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-label">Architected materials</div>
+            <div class="project-title">Microstructure in NiTi TPMS lattices</div>
+            <p>
+              Fabricated Primitive and Gyroid NiTi TPMS lattices via LPBF and analyzed Ni evaporation, oxide formation,
+              and phase distribution as a function of geometry and process parameters.
+            </p>
+            <div class="project-meta">
+              <span>TPMS design</span>
+              <span>Microstructure control</span>
+              <span>Functional applications</span>
+            </div>
+            <div class="project-footer">
+              <span>Outcome: <strong>Design rules for robust NiTi lattice architectures.</strong></span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-label">Conference · ASME IMECE</div>
+            <div class="project-title">Inhomogeneous microstructure in NiTi TPMS</div>
+            <p>
+              Presented work on non-uniform solidification in NiTi TPMS structures, highlighting how complex geometries
+              influence melt pool dynamics and microstructural gradients.
+            </p>
+            <div class="project-meta">
+              <span>ASME IMECE 2022</span>
+              <span>Process–geometry interaction</span>
+              <span>Microstructure gradients</span>
+            </div>
+            <div class="project-footer">
+              <span>Outcome: <strong>Insight into geometry-driven microstructure variation.</strong></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESEARCH / PUBLICATIONS -->
+    <section id="research">
+      <div class="shell">
+        <div class="section-header">
+          <div class="section-title-block">
+            <div class="section-eyebrow">Research & publications</div>
+            <div class="section-title">Globally indexed, rigorously peer-reviewed work.</div>
+            <div class="section-subtitle">
+              My publications are archived and indexed across major scientific databases, ensuring traceability and
+              long-term accessibility—useful for partners who value evidence-backed innovation.
+            </div>
+          </div>
+          <div class="section-chip-row">
+            <span class="chip">Scopus</span>
+            <span class="chip">Web of Science</span>
+            <span class="chip">Google Scholar</span>
+            <span class="chip">ORCID · ISNI</span>
+          </div>
+        </div>
+
+        <div class="research-grid">
+          <div class="research-card">
+            <div class="research-title">Metamaterials, 3D printing & shape memory materials</div>
+            <div class="research-meta">
+              Focused on architected materials, NiTi-based smart structures, and the interplay between process
+              parameters, microstructure, and functional performance.
+            </div>
+            <p>
+              Topics include porous NiTi structures for tissue engineering and impact absorption, TPMS lattices for
+              lightweight yet stiff components, and shape memory alloys for actuation and adaptive systems.
+            </p>
+            <div class="research-tags">
+              <span class="research-tag">Metamaterials</span>
+              <span class="research-tag">NiTi SMAs</span>
+              <span class="research-tag">TPMS lattices</span>
+              <span class="research-tag">Additive manufacturing</span>
+              <span class="research-tag">Mechanical characterization</span>
+            </div>
+            <div class="research-note">
+              Full publication list available via Google Scholar, Scopus, Web of Science, and institutional repositories.
+            </div>
+          </div>
+
+          <div class="archive-card">
+            <div><strong>Digital archives & identifiers</strong></div>
+            <p>
+              My work is indexed across global academic databases and discovery platforms, including:
+            </p>
+            <div class="archive-grid">
+              <div class="archive-item">Scopus</div>
+              <div class="archive-item">Web of Science</div>
+              <div class="archive-item">Google Scholar</div>
+              <div class="archive-item">Semantic Scholar</div>
+              <div class="archive-item">CORE · BASE</div>
+              <div class="archive-item">British Library</div>
+              <div class="archive-item">NYU Libraries</div>
+              <div class="archive-item">OpenAlex · Dimensions</div>
+            </div>
+            <p>
+              Persistent identifiers:
+              <br />ORCID: 0000-0002-4355-2169
+              <br />ResearcherID, Scopus Author ID, ISNI and more.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DATA SCIENCE -->
+    <section id="data-science">
+      <div class="shell">
+        <div class="section-header">
+          <div class="section-title-block">
+            <div class="section-eyebrow">Data science & AI</div>
+            <div class="section-title">Bringing analytics into materials and manufacturing.</div>
+            <div class="section-subtitle">
+              Beyond experiments, I use Python, MATLAB, and modern data tools to extract insights from process and
+              testing data—supporting better decisions in design, manufacturing, and quality.
+            </div>
+          </div>
+          <div class="section-chip-row">
+            <span class="chip">IBM Data Science Professional Certificate</span>
+            <span class="chip">Google AI Essentials</span>
+            <span class="chip">Python for Everybody (Michigan)</span>
+          </div>
+        </div>
+
+        <div class="ds-grid">
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">Applied data science for materials</div>
+                <div class="card-subtitle">From raw test data to actionable process insights.</div>
+              </div>
+              <div class="badge">Python · ML · Visualization</div>
+            </div>
+            <ul class="card-list">
+              <li>
+                <span class="bullet">●</span>
+                <span>Experience with Python (Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn) and MATLAB for data
+                  analysis, modeling, and visualization.</span>
+              </li>
+              <li>
+                <span class="bullet">●</span>
+                <span>Comfortable building data pipelines from experimental logs and sensor data to clean, structured
+                  datasets ready for analysis.</span>
+              </li>
+              <li>
+                <span class="bullet">●</span>
+                <span>Interested in integrating AI/ML into process optimization, defect prediction, and property
+                  estimation for AM and advanced materials.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">Technical stack</div>
+                <div class="card-subtitle">Tools I use frequently in research and development workflows.</div>
+              </div>
+              <div class="badge">Tooling</div>
+            </div>
+            <div class="stack-grid">
+              <div class="stack-item">
+                <div class="stack-label">Programming</div>
+                <div class="stack-value">Python, MATLAB, Shell</div>
+              </div>
+              <div class="stack-item">
+                <div class="stack-label">Data</div>
+                <div class="stack-value">Pandas, NumPy, SQLite</div>
+              </div>
+              <div class="stack-item">
+                <div class="stack-label">Visualization</div>
+                <div class="stack-value">Matplotlib, Plotly, Seaborn</div>
+              </div>
+              <div class="stack-item">
+                <div class="stack-label">ML</div>
+                <div class="stack-value">Scikit-learn</div>
+              </div>
+              <div class="stack-item">
+                <div class="stack-label">Docs</div>
+                <div class="stack-value">LaTeX, Jupyter</div>
+              </div>
+              <div class="stack-item">
+                <div class="stack-label">Design & CAD</div>
+                <div class="stack-value">SolidWorks, FreeCAD, Magics</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="shell">
+        <div class="section-header">
+          <div class="section-title-block">
+            <div class="section-eyebrow">Contact</div>
+            <div class="section-title">Let’s talk about your next materials challenge.</div>
+            <div class="section-subtitle">
+              Whether you’re building lighter structures, smarter components, or more reliable AM workflows, I’d be
+              happy to explore how my background can support your roadmap.
+            </div>
+          </div>
+          <div class="section-chip-row">
+            <span class="chip">R&D roles</span>
+            <span class="chip">Advanced manufacturing</span>
+            <span class="chip">Materials innovation</span>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <div>
+            <div class="contact-title">Open to industrial roles & collaborations</div>
+            <div class="contact-subtitle">
+              I am currently based in Abu Dhabi and open to roles in industry, research labs, and innovation teams
+              worldwide. If your work touches advanced materials, additive manufacturing, or data-driven engineering,
+              we likely have a lot to discuss.
+            </div>
+            <div class="contact-meta-row">
+              <span class="contact-meta-pill">Location: Abu Dhabi, UAE</span>
+              <span class="contact-meta-pill">Availability: Summer 2026</span>
+              <span class="contact-meta-pill">Preferred: R&D, AM, materials innovation</span>
+            </div>
+            <div class="hero-cta-row">
+              <a href="mailto:contact@shahadathussain.com" class="btn">
+                <span class="icon">✉️</span>
+                <span>Email me</span>
+              </a>
+              <a href="#top" class="btn btn-outline">
+                <span class="icon">⬆️</span>
+                <span>Back to top</span>
+              </a>
+            </div>
+          </div>
+          <div class="contact-right">
+            <div class="contact-field">
+              <div class="contact-label">Primary email</div>
+              <div class="contact-value">
+                <span class="key">contact@shahadathussain.com</span>
+                <button class="contact-copy" data-copy="contact@shahadathussain.com">Copy</button>
+              </div>
+            </div>
+            <div class="contact-field">
+              <div class="contact-label">Location</div>
+              <div class="contact-value">
+                <span class="key">PO Box 129188 · Abu Dhabi · United Arab Emirates</span>
+              </div>
+            </div>
+            <div class="contact-field">
+              <div class="contact-label">Key profiles</div>
+              <div class="contact-value">
+                <span class="key">LinkedIn · Google Scholar · ORCID · GitHub</span>
+              </div>
+            </div>
+            <div class="contact-field">
+              <div class="contact-label">Note</div>
+              <div class="contact-value">
+                <span class="key">Happy to share a tailored CV or portfolio aligned with your role.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell">
+      <div class="footer-row">
+        <div>© 2026 Shahadat Hussain, PhD · Advanced Materials & Additive Manufacturing</div>
+        <div class="footer-links">
+          <a href="#top">Top</a>
+          <a href="#capabilities">Capabilities</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script>
+  // Smooth scroll for internal links (for older browsers)
+  document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+    anchor.addEventListener('click', function (e) {
+      var targetId = this.getAttribute('href').substring(1);
+      if (!targetId) return;
+      var target = document.getElementById(targetId);
+      if (target) {
+        e.preventDefault();
+        window.scrollTo({
+          top: target.offsetTop - 72,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+
+  // Copy-to-clipboard for contact fields
+  document.querySelectorAll('.contact-copy').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var value = this.getAttribute('data-copy');
+      if (!navigator.clipboard) {
+        var textarea = document.createElement('textarea');
+        textarea.value = value;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+      } else {
+        navigator.clipboard.writeText(value);
+      }
+      var original = this.textContent;
+      this.textContent = 'Copied';
+      this.style.borderColor = 'rgba(61, 214, 140, 0.9)';
+      setTimeout(() => {
+        this.textContent = original;
+        this.style.borderColor = 'rgba(255, 255, 255, 0.12)';
+      }, 1400);
+    });
+  });
+</script>
+</body>
+</html>
